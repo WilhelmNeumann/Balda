@@ -191,3 +191,7 @@ StyleCop.Cache
 bin
 obj
 \.vs/Balda/v15/Server/sqlite3/
+
+\.idea/\.idea\.Balda/\.idea/
+
+\.idea/\.idea\.Balda/
