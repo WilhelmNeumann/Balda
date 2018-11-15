@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Balda.FckngLogic;
 
 namespace Balda.UserInterface
 {
@@ -11,7 +12,8 @@ namespace Balda.UserInterface
 		public MainMenu()
 		{
 			InitializeComponent();
-		}
+			new IlyaTest().ent();
+		}	
 
 		/// <summary>
 		/// Возвращение на страницу с ранее открытым складом

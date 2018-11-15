@@ -64,7 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="NetCode\Server.cs" />
+    <Compile Include="FckngLogic\IlyaTest.cs" />
     <Compile Include="UserInterface\Lobby.xaml.cs">
       <DependentUpon>Lobby.xaml</DependentUpon>
     </Compile>
@@ -75,7 +75,6 @@
       <DependentUpon>NewGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\Console.cs" />
-    <Compile Include="FuckingLogic\AdinAdin.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
