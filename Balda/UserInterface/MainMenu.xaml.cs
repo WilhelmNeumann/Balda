@@ -20,5 +20,13 @@ namespace Balda.UserInterface
 		{
 			MainWindow.SetContent(new NewGame());
 		}
+
+		/// <summary>
+		/// Закрытие игры
+		/// </summary>
+		private void Exit(object sender, RoutedEventArgs e)
+		{
+			Application.Current.Shutdown();
+		}
 	}
 }

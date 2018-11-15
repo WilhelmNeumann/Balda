@@ -6,7 +6,37 @@
       xmlns:local="clr-namespace:Balda.UserInterface"
       mc:Ignorable="d">
 
-    <Grid>
-        <Button Content="wqeqwe"></Button>
+    <Grid ShowGridLines="False" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Text="Новая игра" FontSize="36" TextAlignment="Center"></TextBlock>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="Название игры" TextAlignment="Right"></TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="195"></TextBox>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Text="Размеры поля (Макс. 100*100)" TextAlignment="Right"></TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="40" Margin="55 0 0 0"></TextBox>
+        <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="X" Margin="45 0 0 0" TextAlignment="Right"></TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="40"></TextBox>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Text="Таймер (В секундах)" TextAlignment="Right"></TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="40"></TextBox>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Text="Игра с сюрпризом" TextAlignment="Right"></TextBlock>
+        <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"></CheckBox>
+        
+        <Button Grid.Row="5" Grid.Column="0" Content="Назад" Click="ToMainMenu"></Button>
+        <Button Grid.Row="5" Grid.Column="1" Content="Создать лобби"></Button>
     </Grid>
 </UserControl>
