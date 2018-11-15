@@ -20,5 +20,13 @@ namespace Balda.UserInterface
 		{
 			MainWindow.SetContent(new MainMenu());
 		}
+
+		/// <summary>
+		/// Создание лобби
+		/// </summary>
+		private void CreateLobby(object sender, RoutedEventArgs e)
+		{
+			MainWindow.SetContent(new Lobby());
+		}
 	}
 }

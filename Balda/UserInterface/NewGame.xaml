@@ -41,6 +41,6 @@
 		<CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" />
 
 		<Button Grid.Row="5" Grid.Column="0" Content="Назад" Click="ToMainMenu" />
-		<Button Grid.Row="5" Grid.Column="1" Content="Создать лобби" />
+		<Button Grid.Row="5" Grid.Column="1" Content="Создать лобби" Click="CreateLobby"/>
 	</Grid>
 </UserControl>
