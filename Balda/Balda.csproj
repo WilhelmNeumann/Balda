@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="NetCode\Server.cs" />
     <Compile Include="UserInterface\Lobby.xaml.cs">
       <DependentUpon>Lobby.xaml</DependentUpon>
     </Compile>
@@ -73,6 +74,8 @@
     <Compile Include="UserInterface\NewGame.xaml.cs">
       <DependentUpon>NewGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Util\Console.cs" />
+    <Compile Include="FuckingLogic\AdinAdin.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -122,6 +125,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
