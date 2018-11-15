@@ -6,18 +6,18 @@
              xmlns:local="clr-namespace:Balda.UserInterface"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d">
-    <Grid Width="200" VerticalAlignment="Center">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition Height="60"></RowDefinition>
-        </Grid.RowDefinitions>
+	<Grid Width="200" VerticalAlignment="Center">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50" />
+			<RowDefinition Height="35" />
+			<RowDefinition Height="35" />
+			<RowDefinition Height="35" />
+			<RowDefinition Height="60" />
+		</Grid.RowDefinitions>
 
-        <TextBlock Text="MLG Balda" FontSize="36" TextAlignment="Center"></TextBlock>
-        <Button Grid.Row="1" Content="Новая игра" Click="NewGame"></Button>
-        <Button Grid.Row="2" Content="Присоединиться к игре"></Button>
-        <Button Grid.Row="3" Content="Выход" Click="Exit"></Button>
-    </Grid>
+		<TextBlock Text="MLG Balda" FontSize="36" TextAlignment="Center" />
+		<Button Grid.Row="1" Content="Новая игра" Click="NewGame" />
+		<Button Grid.Row="2" Content="Присоединиться к игре" />
+		<Button Grid.Row="3" Content="Выход" Click="Exit" />
+	</Grid>
 </UserControl>
