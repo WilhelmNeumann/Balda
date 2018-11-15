@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using Balda.UserInterface;
 using MahApps.Metro.Controls;
 
@@ -9,10 +10,22 @@ namespace Balda
 	/// </summary>
 	public partial class MainWindow : MetroWindow
 	{
+		private static MainWindow _instance;
+
 		public MainWindow()
 		{
 			InitializeComponent();
-			RootContent.Content = new MainMenu();
+			_instance = this;
+			SetContent(new MainMenu());
+		}
+
+		/// <summary>
+		/// Устанавливает содержимое окна
+		/// </summary>
+		/// <param name="userControl">Содержимое, которе будет установлено в окне</param>
+		public static void SetContent(UserControl userControl)
+		{
+			_instance.RootContent.Content = userControl;
 		}
 	}
 }
