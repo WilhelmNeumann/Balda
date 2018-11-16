@@ -12,8 +12,7 @@ namespace Balda.UserInterface
 		public MainMenu()
 		{
 			InitializeComponent();
-			new IlyaTest().ent();
-		}	
+		}
 
 		/// <summary>
 		/// Возвращение на страницу с ранее открытым складом
@@ -29,6 +28,11 @@ namespace Balda.UserInterface
 		private void Exit(object sender, RoutedEventArgs e)
 		{
 			Application.Current.Shutdown();
+		}
+
+		private void IlyaTestClick(object sender, RoutedEventArgs e)
+		{
+			IlyaTest.Test();
 		}
 	}
 }
