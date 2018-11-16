@@ -65,11 +65,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FckngLogic\IlyaTest.cs" />
+    <Compile Include="FckngLogic\Player.cs" />
+    <Compile Include="NetCode\Client.cs" />
+    <Compile Include="NetCode\NetworkDataHandler.cs" />
+    <Compile Include="NetCode\Server.cs" />
     <Compile Include="UserInterface\Lobby.xaml.cs">
       <DependentUpon>Lobby.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInterface\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Modals\EnterIpDialog.xaml.cs">
+      <DependentUpon>EnterIpDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInterface\NewGame.xaml.cs">
       <DependentUpon>NewGame.xaml</DependentUpon>
@@ -92,6 +99,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserInterface\Modals\EnterIpDialog.xaml" />
     <Page Include="UserInterface\NewGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

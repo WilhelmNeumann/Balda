@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Balda.UserInterface"
              mc:Ignorable="d"
              d:DesignHeight="300">
-    <Grid HorizontalAlignment="Center" Width="400" ShowGridLines="True">
+    <Grid HorizontalAlignment="Center" Width="400" ShowGridLines="True" Name="PlayersList">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="50"></RowDefinition>
 			<RowDefinition></RowDefinition>
@@ -17,11 +17,9 @@
 			<ListView.View>
 				<GridView>
 					<GridViewColumn Header="Игрок"
-                                    Width="170"
-					                DisplayMemberBinding="{Binding XPath=FirstName}" />
+                                    Width="170" />
 					<GridViewColumn Header="Готовность"
-                                    Width="90"
-					                DisplayMemberBinding="{Binding XPath=LastName}" />
+                                    Width="90" />
 				</GridView>
 			</ListView.View>
 		</ListView>

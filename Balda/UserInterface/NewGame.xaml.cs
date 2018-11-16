@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using SocketServer;
 
 namespace Balda.UserInterface
 {
@@ -19,6 +20,7 @@ namespace Balda.UserInterface
 		private void ToMainMenu(object sender, RoutedEventArgs e)
 		{
 			MainWindow.SetContent(new MainMenu());
+			Server.Start();
 		}
 
 		/// <summary>
