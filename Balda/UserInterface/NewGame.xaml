@@ -28,11 +28,9 @@
 
 		<TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Text="Размеры поля (Макс. 100*100)"
 		           TextAlignment="Right" />
-		<TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="40"
-		         Margin="55 0 0 0" />
-		<TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="X"
-		           Margin="45 0 0 0" TextAlignment="Right" />
-		<TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="40" />
+		
+		<ComboBox  Grid.Row="2" Grid.Column="1" Name="Sizes" Height="30" VerticalAlignment="Top">
+		</ComboBox>
 
 		<TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Text="Таймер (В секундах)" TextAlignment="Right" />
 		<TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="40" />

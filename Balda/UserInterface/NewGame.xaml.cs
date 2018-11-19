@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using SocketServer;
 
@@ -12,6 +14,14 @@ namespace Balda.UserInterface
 		public NewGame()
 		{
 			InitializeComponent();
+
+			foreach (var i in Enumerable.Range(4, 16))
+			{
+				Sizes.Items.Add(new TextBlock
+				{
+					Text = i + " * " + i
+				});
+			}
 		}
 
 		/// <summary>
@@ -28,7 +38,17 @@ namespace Balda.UserInterface
 		/// </summary>
 		private void CreateLobby(object sender, RoutedEventArgs e)
 		{
-			MainWindow.SetContent(new Lobby());
+			MainWindow.SetContent(new Lobby(GetFieldSize()));
+		}
+
+		/// <summary>
+		/// Получение размера игрового поля
+		/// </summary>
+		/// <returns>Размер поля</returns>
+		private int GetFieldSize()
+		{
+			var value = Sizes.Text.Split(new[] {" * "}, StringSplitOptions.None)[0];
+			return int.Parse(value);
 		}
 	}
 }

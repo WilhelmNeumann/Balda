@@ -6,11 +6,11 @@ using Balda.Util;
 
 namespace Balda.FckngLogic
 {
-	public class WordsLibrary
+	public static class WordsLibrary
 	{
-		private HashSet<string> cashedWords;
+		private static HashSet<string> cashedWords;
 
-		private HashSet<string> words
+		private static HashSet<string> words
 		{
 			get => cashedWords ?? (cashedWords = ReadWordsFromFiles());
 			set => cashedWords = value;
@@ -21,7 +21,7 @@ namespace Balda.FckngLogic
 		/// </summary>
 		/// <param name="length">Длина нужного слова</param>
 		/// <returns>Случайное слово</returns>
-		public string GetRandomWordByLength(int length)
+		public static string GetRandomWordByLength(int length)
 		{
 			var wordsWithLength = words.Where(w => w.Length == length).ToList();
 
@@ -36,7 +36,7 @@ namespace Balda.FckngLogic
 		/// </summary>
 		/// <param name="word">Проверяемое слово</param>
 		/// <returns>Корректно ли слово</returns>
-		public bool WordIsCorrect(string word)
+		public static bool WordIsCorrect(string word)
 		{
 			return words.Contains(word);
 		}
@@ -46,7 +46,7 @@ namespace Balda.FckngLogic
 		/// Считывает слова из всех выбранных файлов
 		/// </summary>
 		/// <returns>Множество слов</returns>
-		private HashSet<string> ReadWordsFromFiles()
+		private static HashSet<string> ReadWordsFromFiles()
 		{
 			var files = new List<string> {"34k.txt"};
 			foreach (var file in files)

@@ -4,17 +4,13 @@ namespace Balda.FckngLogic
 {
 	public class IlyaTest
 	{
-		private static WordsLibrary library;
-
 		public static void Test()
 		{
-			library = new WordsLibrary();
-
 			var i = 2;
 			var result = "";
 			while (result != "-1")
 			{
-				result = library.GetRandomWordByLength(i);
+				result = WordsLibrary.GetRandomWordByLength(i);
 				Cons.Writeln("Рандомное слово с длиной " + i + " : " + result);
 				i++;
 			}
@@ -26,7 +22,7 @@ namespace Balda.FckngLogic
 
 		private static void Check(string word)
 		{
-			Cons.Writeln("слово " + word + (library.WordIsCorrect(word) ? " " : " не ") + "корректно");
+			Cons.Writeln("слово " + word + (WordsLibrary.WordIsCorrect(word) ? " " : " не ") + "корректно");
 		}
 	}
 }

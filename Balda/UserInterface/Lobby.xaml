@@ -23,7 +23,7 @@
 				</GridView>
 			</ListView.View>
 		</ListView>
-		<Button Grid.Row="2" HorizontalAlignment="Right" Content="Начать игру"></Button>
+		<Button Grid.Row="2" HorizontalAlignment="Right" Click="Play" Content="Начать игру"></Button>
         <Button Grid.Row="2" HorizontalAlignment="Left" Content="Назад"></Button>
 	</Grid>
 </UserControl>
