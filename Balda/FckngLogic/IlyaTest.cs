@@ -1,4 +1,5 @@
 using Balda.Util;
+using Microsoft.SqlServer.Server;
 
 namespace Balda.FckngLogic
 {
@@ -6,9 +7,14 @@ namespace Balda.FckngLogic
 	{
 		public static void Test()
 		{
-			var V = 12;
-			var S = 5;
-			Cons.Write("Илья долбится в очко");
+			var library = new WordsLibrary();
+
+			for (var i = 2; i < 12; i++)
+			{
+				Cons.Writeln("Рандомное слово с длиной " + i + " : " + library.GetRandomWordByLength(i));
+			}
+
+			Cons.Writeln(library.WordIsCorrect("корсак"));
 		}
 	}
 }
