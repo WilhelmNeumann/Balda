@@ -25,7 +25,7 @@ namespace Balda.FckngLogic
 		{
 			var wordsWithLength = words.Where(w => w.Length == length).ToList();
 
-			if (wordsWithLength.Count == 0) return "Такого слова нет";
+			if (wordsWithLength.Count == 0) return "-1";
 
 			var randomIndex = new Random().Next(wordsWithLength.Count);
 			return wordsWithLength[randomIndex];

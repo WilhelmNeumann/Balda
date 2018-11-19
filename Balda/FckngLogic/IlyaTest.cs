@@ -1,20 +1,32 @@
 using Balda.Util;
-using Microsoft.SqlServer.Server;
 
 namespace Balda.FckngLogic
 {
 	public class IlyaTest
 	{
+		private static WordsLibrary library;
+
 		public static void Test()
 		{
-			var library = new WordsLibrary();
+			library = new WordsLibrary();
 
-			for (var i = 2; i < 12; i++)
+			var i = 2;
+			var result = "";
+			while (result != "-1")
 			{
-				Cons.Writeln("Рандомное слово с длиной " + i + " : " + library.GetRandomWordByLength(i));
+				result = library.GetRandomWordByLength(i);
+				Cons.Writeln("Рандомное слово с длиной " + i + " : " + result);
+				i++;
 			}
 
-			Cons.Writeln(library.WordIsCorrect("корсак"));
+			Check("корсак");
+			Check("хуяк");
+			Check("педолог");
+		}
+
+		private static void Check(string word)
+		{
+			Cons.Writeln("слово " + word + (library.WordIsCorrect(word) ? " " : " не ") + "корректно");
 		}
 	}
 }

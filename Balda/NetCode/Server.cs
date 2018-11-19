@@ -1,8 +1,11 @@
 using System;
+using System.IO;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Windows.Controls;
+using Balda.FckngLogic;
 using Balda.NetCode;
 using Balda.Util;
 
@@ -18,12 +21,96 @@ namespace SocketServer
 		/// </summary>
 		private static Thread Thread = new Thread(DataExchange);
 
+		static string userName;
+		private const string host = "127.0.0.1";
+		private const int port = 8888;
+		static TcpClient client;
+		static NetworkStream stream;
+		
 		/// <summary>
 		/// Запускает сервер
 		/// </summary>
 		public static void Start()
 		{
-			Thread.Start();
+			var host = new WebClient().DownloadString("https://api.ipify.org");
+			
+			userName = "Vasyan";
+			client = new TcpClient();
+			try
+			{
+				client.Connect(host, port); //подключение клиента
+				stream = client.GetStream(); // получаем поток
+ 
+				string message = userName;
+				byte[] data = Encoding.Unicode.GetBytes(message);
+				stream.Write(data, 0, data.Length);
+ 
+				// запускаем новый поток для получения данных
+				Thread receiveThread = new Thread(ReceiveMessage);
+				receiveThread.Start(); //старт потока
+				Cons.Writeln("Добро пожаловать, " + userName);
+				SendMessage();
+			}
+			catch (Exception ex)
+			{
+				Cons.Writeln(ex.Message);
+			}
+			finally
+			{
+				Disconnect();
+			}
+			
+			//Thread.Start();
+		}
+		
+		// отправка сообщений
+		static void SendMessage()
+		{
+			Cons.Writeln("Введите сообщение: ");
+             
+			while (true)
+			{
+				string message = "message";
+				byte[] data = Encoding.Unicode.GetBytes(message);
+				stream.Write(data, 0, data.Length);
+			}
+		}
+		// получение сообщений
+		static void ReceiveMessage()
+		{
+			while (true)
+			{
+				try
+				{
+					byte[] data = new byte[64]; // буфер для получаемых данных
+					StringBuilder builder = new StringBuilder();
+					int bytes = 0;
+					do
+					{
+						bytes = stream.Read(data, 0, data.Length);
+						builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+					}
+					while (stream.DataAvailable);
+ 
+					string message = builder.ToString();
+					Cons.Writeln(message);//вывод сообщения
+				}
+				catch
+				{
+					Cons.Writeln("Подключение прервано!"); //соединение было прервано
+					Cons.Writeln("");
+					Disconnect();
+				}
+			}
+		}
+ 
+		static void Disconnect()
+		{
+			if(stream!=null)
+				stream.Close();//отключение потока
+			if(client!=null)
+				client.Close();//отключение клиента
+			Environment.Exit(0); //завершение процесса
 		}
 
 		/// <summary>
@@ -34,14 +121,34 @@ namespace SocketServer
 			Thread = null;
 		}
 
+		
+		
 		/// <summary>
 		/// Метод обмена данными
 		/// </summary>
 		private static void DataExchange()
 		{
+			var ip = new WebClient().DownloadString("https://api.ipify.org");
+			Cons.Writeln(ip);
+			var listner = new TcpListener(new IPEndPoint(IPAddress.Parse(ip), 12000));
+			listner.Start();
+			while (true)
+			{
+				var tcpClient = listner.AcceptTcpClient();
+				var sr = new StreamReader(tcpClient.GetStream());
+				Cons.Writeln("Client : " + sr.ReadLine());
+				var sw = new StreamWriter(tcpClient.GetStream()) {AutoFlush = true};
+				Cons.Writeln("Server : Hi");
+				sw.WriteLine("Hi");
+				Cons.Writeln("Client : " + sr.ReadLine());
+				Cons.Writeln("Server : Bye");
+				sw.WriteLine("Bye");
+				tcpClient.Close();
+			}
+		/*
 			// Устанавливаем для сокета локальную конечную точку
-			var ipHost = Dns.GetHostEntry("localhost");
-			var ipAddr = ipHost.AddressList[0];
+			var ipHost = Dns.GetHostEntry(externalIP);
+			var ipAddr = IPAddress.Parse(externalIP);
 			var ipEndPoint = new IPEndPoint(ipAddr, 11000);
 
 			// Создаем сокет Tcp/Ip
@@ -93,7 +200,7 @@ namespace SocketServer
 			finally
 			{
 				Cons.ReadLine();
-			}
+			}*/
 		}
 
 		public static string GetLocalIPAddress()
