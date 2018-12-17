@@ -20,7 +20,7 @@ namespace Balda.UserInterface
 				X = x, Y = y
 			};
 
-			Content = "ы";
+			Content = "";
 		}
 	}
 }

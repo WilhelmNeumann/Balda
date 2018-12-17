@@ -10,7 +10,7 @@ namespace Balda.FckngLogic
 	{
 		private static HashSet<string> cashedWords;
 
-		private static HashSet<string> words
+		public static HashSet<string> words
 		{
 			get => cashedWords ?? (cashedWords = ReadWordsFromFiles());
 			set => cashedWords = value;

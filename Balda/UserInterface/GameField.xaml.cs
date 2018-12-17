@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +11,11 @@ namespace Balda.UserInterface
 		public GameField(int fieldSize)
 		{
 			InitializeComponent();
+
+
+			var starterWord = WordsLibrary.GetRandomWordByLength(fieldSize);
+			var letters = new List<char>(starterWord);
+
 
 			var range = Enumerable.Range(0, fieldSize);
 
@@ -24,13 +30,19 @@ namespace Balda.UserInterface
 				foreach (var j in range)
 				{
 					var cell = new Cell(i, j);
+					if(i == fieldSize / 2)
+					{
+						cell.Content = letters[j];
+					}
+
 					Field.Children.Add(cell);
 					cell.SetValue(Grid.RowProperty, i);
 					cell.SetValue(Grid.ColumnProperty, j);
 				}
 			}
 
-			var starterWord = WordsLibrary.GetRandomWordByLength(fieldSize);
+			
+
 
 			
 		}
