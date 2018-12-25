@@ -40,11 +40,6 @@ namespace Balda.UserInterface
 					cell.SetValue(Grid.ColumnProperty, j);
 				}
 			}
-
-			
-
-
-			
 		}
 	}
 }

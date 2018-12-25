@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FckngLogic\Game.cs" />
     <Compile Include="FckngLogic\WordsLibrary.cs" />
     <Compile Include="FckngLogic\IlyaTest.cs" />
     <Compile Include="FckngLogic\Player.cs" />
