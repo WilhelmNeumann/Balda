@@ -19,12 +19,15 @@ namespace Balda.UserInterface
 
 			var range = Enumerable.Range(0, fieldSize);
 
+			
+			// Делаем табличку
 			foreach (var i in range)
 			{
 				Field.ColumnDefinitions.Add(new ColumnDefinition {Width = new GridLength(40)});
 				Field.RowDefinitions.Add(new RowDefinition {Height = new GridLength(40)});
 			}
 
+			// Добавление кнопочек
 			foreach (var i in range)
 			{
 				foreach (var j in range)
